@@ -1,0 +1,54 @@
+@model List<Integraciones.Models.IdentificacionViewModel>
+@{
+    ViewData["Title"] = "Identificacion";
+}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Listado de Identificaciones </h2>
+        <a asp-action="Create" class="btn btn-success">Crear Identificación</a>
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">No hay Identificaciones registradas.</div>
+    }
+    else
+    {
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Identificacion</th>
+                    <th>Tipo Identificacion</th>
+                    <th>Nombres</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var identificacion in Model)
+                {
+                    <tr>
+                        <td>@identificacion.idRegistro</td>
+                        <td>@identificacion.txtIdentificacion</td>
+                        <td>
+                            @(identificacion.txtTipoIdentificacion == "C" ? "Cédula" :
+                                identificacion.txtTipoIdentificacion == "R" ? "RUC" :
+                                identificacion.txtTipoIdentificacion)
+
+                        </td>
+                        <td>@identificacion.txtNombresApellidos</td>
+                        <td>@(identificacion.txtestado ? "Activo" : "Inactivo")</td>
+                        
+                 
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@identificacion.idRegistro" class="btn btn-primary btn-sm">Editar</a>
+                            <a asp-action="Inactivar" asp-route-id="@identificacion.idRegistro" class="btn btn-danger btn-sm">Inactivar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

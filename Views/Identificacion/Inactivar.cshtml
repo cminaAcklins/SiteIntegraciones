@@ -1,0 +1,34 @@
+@model Integraciones.Models.IdentificacionViewModel
+@{
+    ViewData["Title"] = "Inactivar Identificacion";
+}
+
+<div class="container mt-5">
+    <h2>Inactivar Identificación</h2>
+
+    <div class="alert alert-warning">
+        <strong>⚠️ Atención:</strong> Esta acción inactivara la identificación.
+    </div>
+
+    <dl class="row">
+        <dt class="col-sm-3">Identificacion</dt>
+        <dd class="col-sm-9">@Model.txtIdentificacion</dd>
+
+        <dt class="col-sm-3">Tipo Identificacion</dt>
+        <dd class="col-sm-9">@Model.txtTipoIdentificacion</dd>
+
+        <dt class="col-sm-3">Nombres Apellidos</dt>
+        <dd class="col-sm-9">@Model.txtNombresApellidos</dd>
+
+        <dt class="col-sm-3">Estado</dt>
+        <dd class="col-sm-9">@Model.txtestado</dd>
+ 
+    </dl>
+
+    <form asp-action="Inactivar" method="post">
+        <input type="hidden" asp-for="idRegistro" />
+        <input type="hidden" name="txtestado" value="false" />
+        <button type="submit" class="btn btn-danger">Inactivar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

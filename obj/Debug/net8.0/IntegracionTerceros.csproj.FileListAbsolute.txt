@@ -1,0 +1,81 @@
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\appsettings.json
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\IntegracionTerceros.staticwebassets.runtime.json
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\IntegracionTerceros.staticwebassets.endpoints.json
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\IntegracionTerceros.exe
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\IntegracionTerceros.deps.json
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\IntegracionTerceros.runtimeconfig.json
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\IntegracionTerceros.dll
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\IntegracionTerceros.pdb
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\Microsoft.Extensions.WebEncoders.dll
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
+C:\Users\User\Downloads\IntegracionTerceros\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.csproj.AssemblyReference.cache
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.AssemblyInfoInputs.cache
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.AssemblyInfo.cs
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.csproj.CoreCompileInputs.cache
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.RazorAssemblyInfo.cache
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.RazorAssemblyInfo.cs
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\scopedcss\bundle\IntegracionTerceros.styles.css
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\Integrac.95E55F19.Up2Date
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.dll
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\refint\IntegracionTerceros.dll
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.pdb
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.genruntimeconfig.cache
+C:\Users\User\Downloads\IntegracionTerceros\obj\Debug\net8.0\ref\IntegracionTerceros.dll
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\appsettings.json
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\IntegracionTerceros.staticwebassets.runtime.json
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\IntegracionTerceros.exe
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\IntegracionTerceros.deps.json
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\IntegracionTerceros.runtimeconfig.json
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\IntegracionTerceros.dll
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\IntegracionTerceros.pdb
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\Microsoft.Extensions.WebEncoders.dll
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
+C:\Desarrollos cmina\IntegracionTerceros\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.csproj.AssemblyReference.cache
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.GeneratedMSBuildEditorConfig.editorconfig
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.AssemblyInfoInputs.cache
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.AssemblyInfo.cs
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.csproj.CoreCompileInputs.cache
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.MvcApplicationPartsAssemblyInfo.cache
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.RazorAssemblyInfo.cache
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.RazorAssemblyInfo.cs
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\staticwebassets.build.json
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\staticwebassets.development.json
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\staticwebassets\msbuild.IntegracionTerceros.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\staticwebassets\msbuild.build.IntegracionTerceros.props
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.IntegracionTerceros.props
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.IntegracionTerceros.props
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\scopedcss\bundle\IntegracionTerceros.styles.css
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\Integrac.95E55F19.Up2Date
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.dll
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\refint\IntegracionTerceros.dll
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.pdb
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\IntegracionTerceros.genruntimeconfig.cache
+C:\Desarrollos cmina\IntegracionTerceros\obj\Debug\net8.0\ref\IntegracionTerceros.dll

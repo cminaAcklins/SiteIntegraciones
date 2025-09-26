@@ -1,0 +1,45 @@
+@model Integraciones.Models.LoginViewModel
+@{
+    Layout = "_LoginLayout"; // 🔹 Layout sin menú
+    ViewData["Title"] = "Iniciar sesión";
+}
+
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
+        <img src="~/images/logoACK.png" alt="Logo de la Empresa"
+             class="img-fluid mx-auto d-block mb-3"
+             style="max-width: 150px;">
+
+   
+
+        <!-- Formulario de login -->
+        <h5 class="mb-3">🔐 Iniciar Sesión</h5>
+        <form asp-action="Login" method="post">
+            <!-- Logo de la empresa -->
+
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label"></label>
+                <input asp-for="Username" class="form-control" placeholder="Usuario" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Contraseña" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            @* Mostrar los errores generales del ModelState *@
+            <div class="text-danger">
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <p>@error.ErrorMessage</p>
+                }
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,45 @@
+@model Integraciones.Models.IdentificacionViewModel
+@{
+    ViewData["Title"] = "Editar Identificacion";
+}
+
+<div class="container mt-5">
+    <h2>Editar Identificación</h2>
+
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="idRegistro" />
+
+        <div class="mb-3">
+            <label asp-for="txtIdentificacion" class="form-label">Número de Cédula/RUC</label>
+            <input asp-for="txtIdentificacion" class="form-control" />
+            <span asp-validation-for="txtIdentificacion" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="txtTipoIdentificacion" class="form-label"></label>
+            <select asp-for="txtTipoIdentificacion" class="form-select" asp-items="ViewBag.TiposIdentificacion">
+                <option value="">-- Seleccione --</option>
+            </select>
+            <span asp-validation-for="txtTipoIdentificacion" class="text-danger"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="txtNombresApellidos" class="form-label"></label>
+            <input asp-for="txtNombresApellidos" class="form-control" />
+            <span asp-validation-for="txtNombresApellidos" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input asp-for="txtestado" class="form-check-input" type="checkbox" />
+            <label asp-for="txtestado" class="form-check-label">Activo</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,31 @@
+@model Integraciones.Models.IdentificacionViewModel
+@{
+    ViewData["Title"] = "Eliminar Identificacion";
+}
+
+<div class="container mt-5">
+    <h2>Eliminar Identificación</h2>
+
+    <div class="alert alert-warning">
+        <strong>⚠️ Atención:</strong> Esta acción Eliminara la identificación.
+    </div>
+
+    <dl class="row">
+        <dt class="col-sm-3">Identificacion</dt>
+        <dd class="col-sm-9">@Model.txtIdentificacion</dd>
+
+        <dt class="col-sm-3">txtIdentificacion</dt>
+        <dd class="col-sm-9">@Model.txtIdentificacion</dd>
+
+        <dt class="col-sm-3">Nombres Apellidos</dt>
+        <dd class="col-sm-9">@Model.txtNombresApellidos</dd>
+
+ 
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="idRegistro" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
