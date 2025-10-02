@@ -1,4 +1,4 @@
-name: Build and deploy ASP.Net Core app to Azure Web App - catastroapiack
+name: Build and deploy ASP.Net Core Web App - catastroweback
 
 on:
   push:
@@ -13,18 +13,21 @@ jobs:
       contents: read
 
     steps:
+      # 1️⃣ Clonar el repositorio
       - uses: actions/checkout@v4
 
+      # 2️⃣ Configurar .NET
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
 
+      # 3️⃣ Publicar la aplicación
       - name: Publish Web App
-        run: dotnet publish Integraciones.csproj -c Release -o ${{ github.workspace }}/publish
+        run: dotnet publish SiteIntegraciones.csproj -c Release -o ${{ github.workspace }}/publish
 
-
-      - name: Upload artifact for deployment job
+      # 4️⃣ Subir los archivos compilados como artifact
+      - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
           name: dotnet-app
@@ -35,16 +38,18 @@ jobs:
     needs: build
 
     steps:
-      - name: Download artifact from build job
+      # 5️⃣ Descargar artifact del build
+      - name: Download artifact from build
         uses: actions/download-artifact@v4
         with:
           name: dotnet-app
           path: ${{ github.workspace }}/publish
 
+      # 6️⃣ Deploy a Azure App Service usando publish profile
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'catastroapiack'
-          slot-name: 'Production'
-          package: ${{ github.workspace }}/publish
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FD9A6AF8332442C1A3846545F496BAF8 }}
+          app-name: 'catastroweback'                               # tu App Service
+          slot-name: 'Production'                                  # slot (Production si no usas slots)
+          package: ${{ github.workspace }}/publish                 # carpeta publicada
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}  # <- aquí va tu secret
