@@ -24,7 +24,7 @@ jobs:
 
       # 3️⃣ Publicar la aplicación
       - name: Publish Web App
-        run: dotnet publish SiteIntegraciones.csproj -c Release -o ${{ github.workspace }}/publish
+        run: dotnet publish Integraciones.csproj -c Release -o ${{ github.workspace }}/publish
 
       # 4️⃣ Subir los archivos compilados como artifact
       - name: Upload artifact for deployment
