@@ -20,8 +20,8 @@ jobs:
         with:
           dotnet-version: '8.x'
 
-      - name: Publish Web API (Self-contained Windows)
-        run: dotnet publish Integraciones/Integraciones.csproj -c Release -r win-x64 --self-contained true /p:PublishTrimmed=false -o ${{ github.workspace }}/publish
+      - name: Publish Web App
+        run: dotnet publish SiteIntegraciones/SiteIntegraciones.csproj -c Release -o ${{ github.workspace }}/publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
