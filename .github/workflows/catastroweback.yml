@@ -21,7 +21,7 @@ jobs:
           dotnet-version: '8.x'
 
       - name: Publish Web App
-        run: dotnet publish SiteIntegraciones.csproj -c Release -o ${{ github.workspace }}/publish
+        run: dotnet publish Integraciones.csproj -c Release -o ${{ github.workspace }}/publish
 
 
       - name: Upload artifact for deployment job
