@@ -2,12 +2,21 @@
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Habilitar logging a consola y archivos
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.AddDebug();
+
+// Habilitar que los logs de stdout se creen en producción
+builder.WebHost.CaptureStartupErrors(true)
+               .UseSetting("detailedErrors", "true");
+
 // Add services to the container
 builder.Services.AddControllersWithViews();
 
 // ApiService con HttpClient usando appsettings
 builder.Services.AddHttpContextAccessor();
-var apiBase = builder.Configuration.GetValue<string>("ApiSettings:BaseUrl") ?? "http://localhost:5170/api/"; 
+var apiBase = builder.Configuration.GetValue<string>("ApiSettings:BaseUrl") ?? "https://catastroapiack-fcfwhuf8cwhkd9gj.westus-01.azurewebsites.net/api/"; 
 builder.Services.AddHttpClient<ApiService>(client =>
 {
     client.BaseAddress = new Uri(apiBase);
