@@ -42,15 +42,37 @@ namespace WebMvcApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(IdentificacionViewModel identificacion)
         {
-            if (!ModelState.IsValid) return View(identificacion);
+            if (!ModelState.IsValid)
+            {
+                LlenarTiposIdentificacion();
+                return View(identificacion);
+            }
 
-            if (!AddTokenCheck()) return RedirectToAction("Login", "Account");
+            if (!AddTokenCheck()) 
+                return RedirectToAction("Login", "Account");
 
-            var success = await _api.CreateIdentificacionAsync(identificacion);
+             var (success, message)  = await _api.CreateIdentificacionAsync(identificacion);
+
             if (success)
-                return RedirectToAction(nameof(Index));
+            {
+              
+                ViewBag.MessageType = "success";
+                ViewBag.Message = "Identificación creada correctamente.";
 
-            ModelState.AddModelError("", "Error al crear la identificación");
+                //ModelState.Clear();
+                identificacion = new IdentificacionViewModel();
+            }
+            else
+            {
+                ViewBag.MessageType = "danger";
+                ViewBag.Message = message;
+                ModelState.AddModelError("", message);
+            }
+
+            //if (success)
+            //    return RedirectToAction(nameof(Index));
+
+            //ModelState.AddModelError("", message);
 
             LlenarTiposIdentificacion();
             return View(identificacion);

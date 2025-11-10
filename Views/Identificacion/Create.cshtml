@@ -1,12 +1,38 @@
-@model Integraciones.Models.IdentificacionViewModel
+﻿@model Integraciones.Models.IdentificacionViewModel
 @{
     ViewData["Title"] = "Crear Identificacion";
 }
 
 <div class="container mt-5">
-    <h2>Crear Identificaci�n</h2>
+    <h2>Crear Identificación</h2>
 
-    <form asp-action="Create" method="post">
+ @*    @if (!ViewData.ModelState.IsValid)
+    {
+        var allErrors = ViewData.ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+        if (allErrors.Any())
+        {
+            <div class="alert alert-danger" role="alert">
+                @foreach (var error in allErrors)
+                {
+                    <p>@error</p>
+                }
+            </div>
+        }
+    } *@
+
+    @if (ViewBag.Message != null)
+    {
+        var alertClass = ViewBag.MessageType == "success" ? "alert-success" : "alert-danger";
+        var iconClass = ViewBag.MessageType == "success" ? "bi bi-check-circle-fill" : "bi bi-exclamation-triangle-fill";
+
+        <div id="alertMessage" class="alert @alertClass mt-3 text-center fw-bold d-flex align-items-center justify-content-center gap-2" role="alert">
+            <i class="@iconClass"></i>
+            <span>@ViewBag.Message</span>
+        </div>
+    }
+
+    <form asp-action="Create" method="post" id="formCrear">
+
         <div class="mb-3">
             <label asp-for="txtIdentificacion" class="form-label"></label>
             <input asp-for="txtIdentificacion" class="form-control" />
@@ -28,13 +54,46 @@
             <span asp-validation-for="txtNombresApellidos" class="text-danger"></span>
         </div>
 
-      
+        <div class="mb-3 form-check">
+            <input asp-for="txtestado" class="form-check-input" type="checkbox" checked />
+            <label asp-for="txtestado" class="form-check-label">Activo</label>
+        </div>
 
-        <button type="submit" class="btn btn-success">Crear</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-success" id="btnCrear">
+            <i class="bi bi-save"></i> Crear
+        </button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">
+            <i class="bi bi-arrow-left-circle"></i> Volver
+        </a>
     </form>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("formCrear");
+            const btn = document.getElementById("btnCrear");
+
+            if (form && btn) {
+                form.addEventListener("submit", function () {
+                    btn.disabled = true;
+                    btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Guardando...';
+                });
+            }
+        });
+    </script>
 }
+
+
+   @*  <script>
+        // Si hay mensaje de éxito, redirigir después de 2 segundos
+        const alert = document.getElementById('alertMessage');
+        if (alert && alert.classList.contains('alert-success')) {
+            setTimeout(() => {
+                window.location.href = '@Url.Action("Index", "Identificacion")';
+            }, 2000); // 2 segundos
+        }
+    </script> *@
+

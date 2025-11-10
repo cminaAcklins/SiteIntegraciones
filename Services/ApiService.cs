@@ -100,12 +100,13 @@ namespace Integraciones.Services
         }
 
 
-        public async Task<bool> CreateIdentificacionAsync(IdentificacionViewModel identificacion)
+
+        public async Task<(bool Success, string Message)> CreateIdentificacionAsync(IdentificacionViewModel identificacion)
+
         {
-            if (!AddTokenHeader()) return false;
+            if (!AddTokenHeader()) return (false, "Token inválido o expirado.");
 
             // Mapear ViewModel -> DTO
-
             var usuario = _httpContextAccessor.HttpContext?.Session.GetString("Usuario");
 
 
@@ -123,8 +124,26 @@ namespace Integraciones.Services
 
             // Llamada al endpoint real de creación de la API
             var resp = await _http.PostAsJsonAsync("Identificacion/CrearIdentificacion", dto);
+            var message = await resp.Content.ReadAsStringAsync();
 
-            return resp.IsSuccessStatusCode;
+            try
+            {
+                var errorObj = System.Text.Json.JsonSerializer.Deserialize<ErrorDto>(message, new System.Text.Json.JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+
+                if (errorObj != null && !string.IsNullOrEmpty(errorObj.Mensaje))
+                    message = errorObj.Mensaje;
+            }
+            catch
+            {
+                // Si no es JSON, deja el mensaje tal cual
+            }
+
+            
+
+            return (resp.IsSuccessStatusCode, message);
         }
 
 
