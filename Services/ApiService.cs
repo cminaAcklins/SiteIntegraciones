@@ -93,12 +93,11 @@ namespace Integraciones.Services
             if (!AddTokenHeader()) return null;
 
             // Llamada al endpoint real de consulta de la API
-            var resp = await _http.GetAsync($"Identificacion/ConsultIdentificacion/{id}");
+            var resp = await _http.GetAsync($"Identificacion/ConsultIdentificacionId/{id}");
             if (!resp.IsSuccessStatusCode) return null;
 
             return await resp.Content.ReadFromJsonAsync<IdentificacionViewModel>();
         }
-
 
 
         public async Task<(bool Success, string Message)> CreateIdentificacionAsync(IdentificacionViewModel identificacion)
