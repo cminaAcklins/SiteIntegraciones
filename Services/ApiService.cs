@@ -87,6 +87,36 @@ namespace Integraciones.Services
 
             return await resp.Content.ReadFromJsonAsync<List<IdentificacionViewModel>>();
         }
+        public async Task<PagedResult<IdentificacionViewModel>?> GetIdentificacionesPagedAsync(int page, int pageSize)
+        {
+
+            if (!AddTokenHeader()) return null;
+
+            var url = $"Identificacion/ListaIdentificaciones?page={page}&pageSize={pageSize}";
+
+            var response = await _http.GetFromJsonAsync<PagedResult<IdentificacionDto>>(url);
+
+            if (response == null)
+                return new PagedResult<IdentificacionViewModel>();
+
+            // Mapear de DTO a ViewModel
+            var viewModel = new PagedResult<IdentificacionViewModel>
+            {
+                TotalItems = response.TotalItems,
+                Items = response.Items.Select(x => new IdentificacionViewModel
+                {
+                    idRegistro = x.idRegistro,
+                    txtIdentificacion = x.txtIdentificacion,
+                    txtTipoIdentificacion = x.txtTipoIdentificacion,
+                    txtNombresApellidos = x.txtNombresApellidos,
+                    txtestado = x.txtestado,
+                    bdVerificado = x.bdVerificado
+                }).ToList()
+            };
+
+            return viewModel;
+        }
+
 
         public async Task<IdentificacionViewModel?> GetIdentificacionesAsync(int id)
         {
@@ -118,6 +148,7 @@ namespace Integraciones.Services
                 txtFechaIngreso = DateTime.Now,
                 txtUsuarioIngreso = usuario,
                 txtestado = identificacion.txtestado,
+                bdVerificado = identificacion.bdVerificado,
 
             };
 
@@ -162,6 +193,8 @@ namespace Integraciones.Services
                 txtNombresApellidos = identificacion.txtNombresApellidos,
                 //txtUsuarioIngreso = usuario ?? string.Empty,
                 txtestado = identificacion.txtestado,
+                bdVerificado = identificacion.bdVerificado,
+
 
             };
 

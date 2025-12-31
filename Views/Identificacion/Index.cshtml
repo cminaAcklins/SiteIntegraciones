@@ -1,15 +1,19 @@
-@model List<Integraciones.Models.IdentificacionViewModel>
+@model Integraciones.Application.DTOs.PagedResult<Integraciones.Models.IdentificacionViewModel>
 @{
     ViewData["Title"] = "Identificacion";
+
+    int pageSize = 10; // mismo que envías al API
+    int currentPage = ViewData["CurrentPage"] as int? ?? 1;
+    int totalPages = (int)Math.Ceiling((double)Model.TotalItems / pageSize);
 }
 
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>Listado de Identificaciones </h2>
+        <h2>Listado de Identificaciones</h2>
         <a asp-action="Create" class="btn btn-success">Crear Identificación</a>
     </div>
 
-    @if (Model == null || !Model.Any())
+    @if (Model == null || !Model.Items.Any())
     {
         <div class="alert alert-info">No hay Identificaciones registradas.</div>
     }
@@ -19,15 +23,16 @@
             <thead class="table-dark">
                 <tr>
                     <th>ID</th>
-                    <th>Identificacion</th>
-                    <th>Tipo Identificacion</th>
+                    <th>Identificación</th>
+                    <th>Tipo Identificación</th>
                     <th>Nombres</th>
                     <th>Estado</th>
+                    <th>Verificado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var identificacion in Model)
+                @foreach (var identificacion in Model.Items)
                 {
                     <tr>
                         <td>@identificacion.idRegistro</td>
@@ -36,19 +41,27 @@
                             @(identificacion.txtTipoIdentificacion == "C" ? "Cédula" :
                                 identificacion.txtTipoIdentificacion == "R" ? "RUC" :
                                 identificacion.txtTipoIdentificacion)
-
                         </td>
                         <td>@identificacion.txtNombresApellidos</td>
                         <td>@(identificacion.txtestado ? "Activo" : "Inactivo")</td>
-                        
-                 
+                        <td>@(identificacion.bdVerificado ? "SI" : "NO")</td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@identificacion.idRegistro" class="btn btn-primary btn-sm">Editar</a>
-                           @*  <a asp-action="Inactivar" asp-route-id="@identificacion.idRegistro" class="btn btn-danger btn-sm">Inactivar</a> *@
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
+
+        <!-- Paginación -->
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <span>Total: @Model.TotalItems registros</span>
+            <div>
+                @for (int i = 1; i <= totalPages; i++)
+                {
+                    <a asp-action="Index" asp-route-page="@i" class="btn btn-sm @(i == currentPage ? "btn-primary" : "btn-outline-primary")">@i</a>
+                }
+            </div>
+        </div>
     }
 </div>

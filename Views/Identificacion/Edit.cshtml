@@ -34,6 +34,10 @@
             <input asp-for="txtestado" class="form-check-input" type="checkbox" />
             <label asp-for="txtestado" class="form-check-label">Activo</label>
         </div>
+        <div class="mb-3 form-check">
+            <input asp-for="bdVerificado" class="form-check-input" type="checkbox" />
+            <label asp-for="bdVerificado" class="form-check-label">Verificado</label>
+        </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>
         <a asp-action="Index" class="btn btn-secondary">Cancelar</a>

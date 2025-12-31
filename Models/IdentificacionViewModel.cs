@@ -20,7 +20,7 @@ public class IdentificacionViewModel
     public string txtNombresApellidos { get; set; } = string.Empty;
 
     public bool txtestado { get; set; }
-
+    public bool bdVerificado { get; set; }
 
     public DateTime txtFechaIngreso { get; set; }
     public string txtUsuarioIngreso { get; set; } = string.Empty;
@@ -33,6 +33,4 @@ public class IdentificacionEstadoViewModel
     public int idRegistro { get; set; }
     public bool txtestado { get; set; }
 }
-
-
 

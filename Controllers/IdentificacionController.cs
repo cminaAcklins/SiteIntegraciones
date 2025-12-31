@@ -18,15 +18,20 @@ namespace WebMvcApp.Controllers
         }
 
         // Listado de identificiones
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page , int pageSize)
         {
-            var identificaciones = await _api.GetIdentificacionesAsync();
+
+            if (!AddTokenCheck()) return RedirectToAction("Login", "Account");
+
+            //var identificaciones = await _api.GetIdentificacionesAsync();
+            var identificaciones = await _api.GetIdentificacionesPagedAsync(page, pageSize);
 
             if (identificaciones == null) // Token inválido o expirado
             {
                 return RedirectToAction("Login", "Account");
             }
 
+            ViewData["CurrentPage"] = page;
             return View(identificaciones);
         }
 
@@ -96,8 +101,20 @@ namespace WebMvcApp.Controllers
             var identificacion = await _api.GetIdentificacionesAsync(id);
             if (identificacion == null) return NotFound();
 
+            var model = new IdentificacionViewModel
+            {
+                idRegistro = identificacion.idRegistro,
+                txtIdentificacion = identificacion.txtIdentificacion,
+                txtTipoIdentificacion = identificacion.txtTipoIdentificacion,
+                txtNombresApellidos = identificacion.txtNombresApellidos,
+                txtestado = identificacion.txtestado,
+                bdVerificado = identificacion.bdVerificado,
+                txtFechaIngreso = identificacion.txtFechaIngreso,
+                txtUsuarioIngreso = identificacion.txtUsuarioIngreso
+            };
+
             LlenarTiposIdentificacion();
-            return View(identificacion);
+            return View(model);
         }
 
         // Editar Identificacion (POST)

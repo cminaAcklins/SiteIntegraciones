@@ -21,6 +21,8 @@ namespace Integraciones.Application.DTOs
         public DateTime? txtFechaIngreso { get; set; }
         public  string? txtUsuarioIngreso { get; set; }
         public required bool txtestado { get; set; }
+        public required bool bdVerificado { get; set; }
+
 
     }
 
@@ -28,6 +30,18 @@ namespace Integraciones.Application.DTOs
     {
         public bool txtestado { get; set; }              // Nuevo estado
    
+    }
+
+
+    public class PagedResult<T>
+    {
+        public List<T> Items { get; set; } = new();
+        public int Page { get; set; }
+        public int PageSize { get; set; }
+        public int TotalItems { get; set; }
+
+        public int TotalPages =>
+            (int)Math.Ceiling((double)TotalItems / PageSize);
     }
 
 }
