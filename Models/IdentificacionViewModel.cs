@@ -7,6 +7,7 @@ public class IdentificacionViewModel
     public int idRegistro { get; set; }
 
     [Required(ErrorMessage = "Ingrese identificación")]
+    [RegularExpression(@"^\d+$", ErrorMessage = "Solo se permiten números")]
     [Display(Name = "Número de Cédula/RUC")]
     public string txtIdentificacion { get; set; } = string.Empty;
 

@@ -1,27 +1,35 @@
-@model Integraciones.Models.IdentificacionViewModel
+﻿@model Integraciones.Models.IdentificacionViewModel
 @{
     ViewData["Title"] = "Editar Identificacion";
 }
 
+
 <div class="container mt-5">
-    <h2>Editar Identificaci�n</h2>
+    <h2>Editar Identificación</h2>
 
     <form asp-action="Edit" method="post">
         <input type="hidden" asp-for="idRegistro" />
 
         <div class="mb-3">
-            <label asp-for="txtIdentificacion" class="form-label">N�mero de C�dula/RUC</label>
-            <input asp-for="txtIdentificacion" class="form-control" />
-            <span asp-validation-for="txtIdentificacion" class="text-danger"></span>
-        </div>
-
-        <div class="mb-3">
             <label asp-for="txtTipoIdentificacion" class="form-label"></label>
-            <select asp-for="txtTipoIdentificacion" class="form-select" asp-items="ViewBag.TiposIdentificacion">
+            <select asp-for="txtTipoIdentificacion" class="form-select" asp-items="ViewBag.TiposIdentificacion" id="txtTipoIdentificacion">
                 <option value="">-- Seleccione --</option>
             </select>
             <span asp-validation-for="txtTipoIdentificacion" class="text-danger"></span>
         </div>
+
+
+        <div class="mb-3">
+            <label asp-for="txtIdentificacion" class="form-label">Número de Cédula/RUC</label>
+            <input asp-for="txtIdentificacion"
+                   class="form-control"
+                   id="txtIdentificacion"
+                   inputmode="numeric"
+                   autocomplete="off" />
+            <span id="identificacionError" class="text-danger"></span>
+        </div>
+
+       
 
 
         <div class="mb-3">
@@ -46,4 +54,51 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+
+    <script>
+        const tipo = document.getElementById("txtTipoIdentificacion");
+        const identificacion = document.getElementById("txtIdentificacion");
+        const errorSpan = document.getElementById("identificacionError");
+
+        function validarIdentificacion() {
+            // 🔹 Solo números
+            identificacion.value = identificacion.value.replace(/\D/g, '');
+
+            let maxLength = 0;
+            let mensaje = "";
+
+            if (tipo.value === "C") {
+                maxLength = 10;
+                mensaje = "La cédula debe tener 10 dígitos";
+            }
+            else if (tipo.value === "R") {
+                maxLength = 13;
+                mensaje = "El RUC debe tener 13 dígitos";
+            }
+
+            if (maxLength > 0) {
+                identificacion.maxLength = maxLength;
+
+                if (identificacion.value.length > maxLength) {
+                    identificacion.value = identificacion.value.slice(0, maxLength);
+                }
+
+                if (identificacion.value.length > 0 &&
+                    identificacion.value.length < maxLength) {
+                    errorSpan.textContent = mensaje;
+                } else {
+                    errorSpan.textContent = "";
+                }
+            } else {
+                identificacion.removeAttribute("maxlength");
+                errorSpan.textContent = "";
+            }
+        }
+
+        tipo.addEventListener("change", validarIdentificacion);
+        identificacion.addEventListener("input", validarIdentificacion);
+    </script>
+
+
 }
